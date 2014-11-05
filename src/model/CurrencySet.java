@@ -3,12 +3,16 @@ package model;
 import java.util.HashMap;
 
 public class CurrencySet {
-    private HashMap<String,Currency> currencySet;
+    private HashMap<String,Currency> map;
     
     public CurrencySet(){
-        currencySet = new HashMap<>();
+        map = new HashMap<>();
     }
     public Currency getCurrency(String code){
-        return currencySet.get(code);
+        return map.get(code);
+    }
+
+    public void add(String code, Currency currency) {
+        map.put(code,currency);
     }
 }
