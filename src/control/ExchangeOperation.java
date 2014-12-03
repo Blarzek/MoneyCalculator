@@ -6,18 +6,19 @@ import model.Money;
 import ui.ExchangeDialog;
 
 public class ExchangeOperation {
-    private CurrencySet cs;
+    private final ExchangeDialog exchangeDialog;
+    private final CurrencySet currencySet;
     
-    public ExchangeOperation (CurrencySet cs){
-        this.cs = cs;
+    public ExchangeOperation (ExchangeDialog exchangeDialog){
+        this.exchangeDialog = exchangeDialog;
     }
 
     public CurrencySet getCurrencySet() {
-        return cs;
+        return currencySet;
     }
     
     private void readExchange(){
-        ExchangeDialog eo = new ExchangeDialog(cs);
+        ExchangeDialog exchangeDialog = new ExchangeDialog(currencySet);
         // ejecutar
         // get exchange
     }
@@ -27,12 +28,13 @@ public class ExchangeOperation {
         load de ExchangeRateLoader
         */
     }
-    private void calculate(Money money, ExchangeRate er){
+    private void calculate(Money money, ExchangeRate exchangeRate){
         /*
         coge el amount de money, hace la multiplicacion y hace un money nuevo
         */
     }
     public void execute() {
+        System.out.println(exchangeDialog);
         //ExchangeDialog
         //Exchanger
         //MoneyDisplay

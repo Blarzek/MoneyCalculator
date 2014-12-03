@@ -6,10 +6,12 @@ import model.CurrencySet;
 public class CurrencySetLoader {
     public CurrencySet load(){
         CurrencySet cs = new CurrencySet();
-        Currency euro = new Currency("Euro","€","EUR");
+        Currency euro = new Currency("Euro", "€", "EUR");
         cs.add(euro.getCode(), euro);
-        Currency dolar = new Currency("Dólar","$","USD");
+        Currency dolar = new Currency("Dólar", "$", "USD");
         cs.add(dolar.getCode(), dolar);
+        Currency pound = new Currency("Libra", "£", "GBP");
+        cs.add(pound.getCode(), pound);
         return cs;
     }
 }
