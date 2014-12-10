@@ -1,4 +1,5 @@
 package ui;
+
 import model.Money;
 
 public interface ConvertionDisplay {

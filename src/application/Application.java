@@ -7,6 +7,7 @@ import control.ExchangeOperation;
 import model.CurrencySet;
 import persistence.CurrencySetLoader;
 import swing.ApplicationFrame;
+import console.MoneyDisplay;
 
 public class Application {
 
@@ -16,7 +17,7 @@ public class Application {
         frame.register(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new ExchangeOperation(frame.getExchangeDialog(), new ExchangeDisplay()).execute();
+                new ExchangeOperation(frame.getExchangeDialog(), new MoneyDisplay()).execute();
             }
         });
     }

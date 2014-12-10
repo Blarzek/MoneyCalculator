@@ -1,45 +1,20 @@
 package control;
 
-import model.CurrencySet;
-import model.ExchangeRate;
-import model.Money;
+import ui.ConvertionDisplay;
 import ui.ExchangeDialog;
 
 public class ExchangeOperation {
 
     private final ExchangeDialog exchangeDialog;
-    private final CurrencySet currencySet;
+    private final ConvertionDisplay convertionDisplay;
 
-    public ExchangeOperation(ExchangeDialog exchangeDialog) {
+    public ExchangeOperation(ExchangeDialog exchangeDialog, ConvertionDisplay convertionDisplay) {
         this.exchangeDialog = exchangeDialog;
-    }
-
-    public CurrencySet getCurrencySet() {
-        return currencySet;
-    }
-
-    private void readExchange() {
-        ExchangeDialog exchangeDialog = new ExchangeDialog(currencySet);
-        // ejecutar
-        // get exchange
-    }
-
-    private void readExchangeRate() {
-        /*
-         load de ExchangeRateLoader
-         */
-    }
-
-    private void calculate(Money money, ExchangeRate exchangeRate) {
-        /*
-         coge el amount de money, hace la multiplicacion y hace un money nuevo
-         */
+        this.convertionDisplay = convertionDisplay;
     }
 
     public void execute() {
-        System.out.println(exchangeDialog);
-        //ExchangeDialog
-        //Exchanger
-        //MoneyDisplay
+        convertionDisplay.display(exchangeDialog.getExchange().getMoney());
     }
+
 }
