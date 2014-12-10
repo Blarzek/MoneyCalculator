@@ -22,4 +22,5 @@ public class Exchange {
     public String toString() {
         return money + "->" + currency;
     }
+    
 }
