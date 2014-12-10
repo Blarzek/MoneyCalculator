@@ -1,9 +1,10 @@
 package model;
 
 public class ExchangeRate {
-   private final Currency from;
-   private final Currency to;
-   private final float rate;
+
+    private final Currency from;
+    private final Currency to;
+    private final float rate;
 
     public ExchangeRate(Currency from, Currency to, float rate) {
         this.from = from;
@@ -18,7 +19,7 @@ public class ExchangeRate {
     public Currency getTo() {
         return to;
     }
-    
+
     public float getRate() {
         return rate;
     }

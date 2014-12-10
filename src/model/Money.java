@@ -1,6 +1,7 @@
 package model;
 
 public class Money {
+
     private final double amount;
     private final Currency currency;
 
@@ -21,6 +22,5 @@ public class Money {
     public String toString() {
         return amount + " " + currency;
     }
-    
-    
+
 }

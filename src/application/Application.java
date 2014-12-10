@@ -1,21 +1,23 @@
 package application;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import control.ExchangeOperation;
 import model.CurrencySet;
 import persistence.CurrencySetLoader;
-import swing.MoneyCalculatorFrame;
+import swing.ApplicationFrame;
 
 public class Application {
-    public static void main (String [ ] args){
+
+    public static void main(String[] args) {
         CurrencySet currencySet = new CurrencySetLoader().load();
-        MoneyCalculatorFrame frame = new MoneyCalculatorFrame(currencySet.toArray());
-        frame.registerActionInCalculateButton(new ActionListener(){
+        ApplicationFrame frame = new ApplicationFrame(currencySet.toArray());
+        frame.register(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e){
-                new ExchangeOperation(frame);
+            public void actionPerformed(ActionEvent e) {
+                new ExchangeOperation(frame.getExchangeDialog(), new ExchangeDisplay()).execute();
             }
         });
-        ExchangeOperation exchangeOperation = new ExchangeOperation(currencySet);
-        exchangeOperation.execute();
     }
 }

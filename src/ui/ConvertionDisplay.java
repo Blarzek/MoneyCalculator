@@ -1,6 +1,8 @@
 package ui;
+import model.Money;
 
-public class ConvertionDisplay {
-    public void display();
-    
+public interface ConvertionDisplay {
+
+    public void display(Money money);
+
 }

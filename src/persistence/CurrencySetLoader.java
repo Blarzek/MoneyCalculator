@@ -4,14 +4,12 @@ import model.Currency;
 import model.CurrencySet;
 
 public class CurrencySetLoader {
-    public CurrencySet load(){
+
+    public CurrencySet load() {
         CurrencySet cs = new CurrencySet();
-        Currency euro = new Currency("Euro", "€", "EUR");
-        cs.add(euro.getCode(), euro);
-        Currency dolar = new Currency("Dólar", "$", "USD");
-        cs.add(dolar.getCode(), dolar);
-        Currency pound = new Currency("Libra", "£", "GBP");
-        cs.add(pound.getCode(), pound);
+        cs.add(new Currency("Euro", "€", "EUR"));
+        cs.add(new Currency("Dólar", "$", "USD"));
+        cs.add(new Currency("Libra", "£", "GBP"));
         return cs;
     }
 }

@@ -1,6 +1,7 @@
 package model;
 
 public class Exchange {
+
     private final Money money;
     private final Currency currency;
 
