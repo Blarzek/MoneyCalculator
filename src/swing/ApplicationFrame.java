@@ -13,12 +13,14 @@ public class ApplicationFrame extends JFrame {
     private final Currency[] currencies;
     private ActionListener actionListener;
     private ExchangeDialog exchangeDialog;
+    //private JLabel label;
 
     public ApplicationFrame(Currency[] currencies) throws HeadlessException {
         this.currencies = currencies;
         this.setTitle("Money calculator");
-        this.setSize(500, 500);
+        this.setSize(300, 200);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setLocationRelativeTo(null);
         this.createWidgets();
         this.setVisible(true);
     }
@@ -30,6 +32,9 @@ public class ApplicationFrame extends JFrame {
     private void createWidgets() {
         this.add(createCalculateButton(), BorderLayout.SOUTH);
         this.add(createExchangeDialogPanel());
+        //label = new JLabel("");
+        //label.setVisible(false);
+        //this.add(label);
     }
 
     private Component createExchangeDialogPanel() {
@@ -44,6 +49,8 @@ public class ApplicationFrame extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 actionListener.actionPerformed(e);
+                //label.setText("Exchange");
+                //label.setVisible(true);
             }
         });
         return button;
