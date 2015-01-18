@@ -13,7 +13,8 @@ public class ApplicationFrame extends JFrame {
     private final Currency[] currencies;
     private ActionListener actionListener;
     private ExchangeDialog exchangeDialog;
-    //private JLabel label;
+    private JPanel result;
+    private JLabel label;
 
     public ApplicationFrame(Currency[] currencies) throws HeadlessException {
         this.currencies = currencies;
@@ -22,6 +23,7 @@ public class ApplicationFrame extends JFrame {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLocationRelativeTo(null);
         this.createWidgets();
+        this.setResizable(false);
         this.setVisible(true);
     }
 
@@ -30,11 +32,10 @@ public class ApplicationFrame extends JFrame {
     }
 
     private void createWidgets() {
-        this.add(createCalculateButton(), BorderLayout.SOUTH);
-        this.add(createExchangeDialogPanel());
-        //label = new JLabel("");
-        //label.setVisible(false);
-        //this.add(label);
+        this.add(createResultPanel(), BorderLayout.SOUTH);
+        result.add(createCalculateButton(), BorderLayout.SOUTH);
+        this.add(createExchangeDialogPanel(), BorderLayout.CENTER);
+        result.add(createDisplay(), BorderLayout.NORTH);
     }
 
     private Component createExchangeDialogPanel() {
@@ -49,15 +50,26 @@ public class ApplicationFrame extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 actionListener.actionPerformed(e);
-                //label.setText("Exchange");
-                //label.setVisible(true);
+                label.setText("Exchange");
+                label.setVisible(true);
             }
         });
         return button;
     }
+    
+    private Component createDisplay() {
+        label = new JLabel("");
+        label.setVisible(false);
+        return label;
+    }
 
     public void register(ActionListener actionListener) {
         this.actionListener = actionListener;
+    }
+
+    private JPanel createResultPanel() {
+        result = new JPanel();
+        return result;
     }
     
 }
